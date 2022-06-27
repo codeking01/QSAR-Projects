@@ -1,15 +1,23 @@
 <template>
-  <div class="outer">
-    <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3 text="2xl" justify="center">{{ item }}</h3>
-      </el-carousel-item>
-    </el-carousel>
+  <div class="swiper-slide animate__animated  animate__backInUp">
+  <el-carousel type="card" indicator-position="outside" :interval="8000" arrow="always" height="1000px">
+    <el-carousel-item v-for="(c1,index) in imgList" :key="index">
+      <img :src="c1.imgUrl" alt="轮播图信息">
+    </el-carousel-item>
+  </el-carousel>
   </div>
 </template>
-<script setup lang="ts">
 
+<script setup lang="ts">
+import HeaderIndex from '@/components/Header/index.vue'
+const imgList = [
+  { imgUrl: require('./images/home_01.png') },
+  { imgUrl: require('./images/home_02.png') },
+  { imgUrl: require('./images/home_03.png') },
+  { imgUrl: require('./images/home_04.png') },
+]
 </script>
+
 <script lang="ts">
 export default {
   name: 'header-index'
@@ -22,7 +30,7 @@ export default {
   display: flex;
   color: #475669;
   opacity: 0.75;
-  line-height: 300px;
+  line-height: 500px;
   margin: 0;
 }
 
@@ -34,15 +42,10 @@ export default {
   background-color: #d3dce6;
 }
 
-.el-carousel {
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 70px;
-}
-
 .outer {
   width: 100%;
   height: 450px;
+  margin-bottom: 100px;
 }
 
 </style>
