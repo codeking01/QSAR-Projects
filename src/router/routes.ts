@@ -14,6 +14,10 @@ const routes: Array<RouteRecordRaw> = [
     component: ()=>import('@/views/Info/index.vue'),
     // meta: { show: true },
   },
+  {
+    path:'/paper',
+    component: ()=>import('@/views/Paper/index.vue'),
+  },
   // 重定向到首页
   {
     path: '/',
